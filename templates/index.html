@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+            <label for="file-upload" class="custom-file-upload">
+                <input type="file" id="file-upload" name="file"/>
+                Choose Text File
+            </label>
+            <button type="submit" class="btn">Analyze</button>
+        </form>
+        
+        {% if sentiment %}
+        <div class="result">
+            <h2>Sentiment: {{ sentiment }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
